@@ -1,0 +1,20 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\":"app/"
+        }
+    },
+    "require": {
+        "slim/slim": "^4.8",
+        "slim/psr7": "^1.5",
+        "nyholm/psr7": "^1.4",
+        "nyholm/psr7-server": "^1.0",
+        "guzzlehttp/psr7": "^2.0",
+        "http-interop/http-factory-guzzle": "^1.2",
+        "laminas/laminas-diactoros": "^2.8",
+        "illuminate/database": "^8.62",
+        "firebase/php-jwt": "^5.4",
+        "twig/twig": "^3.0",
+        "slim/twig-view": "^3.0"
+    }
+}

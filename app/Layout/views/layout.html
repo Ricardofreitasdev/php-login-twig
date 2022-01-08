@@ -1,0 +1,30 @@
+{% apply spaceless %}
+<!DOCTYPE html>
+<html lang="pt-BR" class="page__{{ page }}">
+<head>
+    {% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="Estudos PHP com - twig | slim | eloquent">
+    <link rel="stylesheet" href="../../../public/style.min.css">
+    {% endblock %}
+</head>
+<body>
+
+    {{ include('snippets/header.html') }}
+
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+ 
+    {% block footer %}
+    {{ include('snippets/footer.html') }}
+    <script src="../../../public/scripts-min.js"></script>
+    {% endblock %}
+  
+</body>
+</html>
+{% endapply %}
