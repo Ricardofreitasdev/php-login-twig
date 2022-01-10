@@ -2,9 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Models\User;
+use Slim\Views\Twig;
+use App\Messages\Flash;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Views\Twig;
 
 class LayoutController
 {
@@ -14,17 +16,24 @@ class LayoutController
         $view = Twig::fromRequest($request);
         return $view->render($response, 'pages/home.html', [
             'page' => 'home',
-            'name' => 'ricardo',
         ]);
     }
 
-    public function contact(Request $request, Response $response, $args)
+    public function admin(Request $request, Response $response, $args)
     {
+
+        if(is_null($_SESSION['logado'])){
+            Flash::add('logged', 'voce nao esta logado');
+            return $response->withStatus(302)->withHeader('Location', '/');
+        }
+
+        $users = User::all();
         $view = Twig::fromRequest($request);
-        return $view->render($response, 'pages/contato.html', [
-            'name' => 'ricardo',
-            'id'   => $args['id'],
+        return $view->render($response, 'pages/admin.html', [
+            'page' => 'home',
+            'users' => json_decode($users, true)         
         ]);
     }
+    
 
 }

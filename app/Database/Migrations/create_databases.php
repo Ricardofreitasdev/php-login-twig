@@ -1,7 +1,7 @@
 <?php
 
-if(!$capsule::schema()->hasTable('customer')) {
-    $capsule::schema()->create('customer', function ($table) {
+if(!$capsule::schema()->hasTable('users')) {
+    $capsule::schema()->create('users', function ($table) {
         $table->increments('id');
         $table->string('name');
         $table->string('email');
