@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Messages\Flash;
 use App\Models\User;
+use App\Utils\LoggedUser;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -19,9 +20,11 @@ class LoginController
 
         try {
 
-            $this->validateLogin($email, $password);
+            $user = $this->validateLogin($email, $password);
 
             $_SESSION['logado'] = true;
+
+            LoggedUser::add(json_decode($user));
             Flash::add('logged', 'login realizado com sucesso');
 
             return $response->withStatus(302)->withHeader('Location', '/admin');

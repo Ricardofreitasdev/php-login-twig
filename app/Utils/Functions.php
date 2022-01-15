@@ -1,12 +1,13 @@
 <?php
 
 use App\Messages\Flash;
+use App\Utils\LoggedUser;
 
 return [
-    'messages' => $messages = new \Twig\TwigFunction('messages', function ($index) {
+    'messages'   => $messages = new \Twig\TwigFunction('messages', function ($index) {
         return Flash::get($index);
     }),
-    'caps'     => $caps = new \Twig\TwigFunction('caps', function ($value) {
-        return strtoupper($value);
-    }),
+    'LoggedUser' => $LoggedUser = new \Twig\TwigFunction('LoggedUser', function () {
+        return json_decode(json_encode(LoggedUser::get()), true);
+    })
 ];

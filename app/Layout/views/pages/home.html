@@ -3,18 +3,18 @@
 {% block title %}home{% endblock %}
 
 {% block content %}
-
-<p>{{ messages('logged') }}</p>
-
+    
     <form action="/login" method="post">
-        <label for="email">{{ caps('email') }}</label>
+        <h2>Login</h2>
+        <label for="email">email</label>
         <input type="email" name="email">
-
+        
         <label for="password">Senha</label>
         <input type="text" name="password">
-
+        
         <input type="submit" value="enviar">
-
+        
+        {{ messages('logged') }}
     </form>
 
 {% endblock %}
