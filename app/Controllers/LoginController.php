@@ -17,11 +17,12 @@ class LoginController
 
         $email    = filter_var($params['email'], FILTER_SANITIZE_EMAIL);
         $password = filter_var($params['password'], FILTER_SANITIZE_STRING);
+        $token = filter_var($params['token'], FILTER_SANITIZE_STRING);
+
 
         try {
 
-            $user = $this->validateLogin($email, $password);
-
+            $user = $this->validateLogin($email, $password, $token);
             $_SESSION['logado'] = true;
 
             LoggedUser::add(json_decode($user));
@@ -37,9 +38,21 @@ class LoginController
 
     }
 
-    private function validateLogin($email, $password)
+    public function exit(Request $request, Response $response)
+    {
+         unset($_SESSION['logado']);
+         LoggedUser::exit();
+         return $response->withStatus(302)->withHeader('Location', '/');
+
+    }
+
+    private function validateLogin($email, $password, $token)
     {
         $existUser = $this->getByEmail($email);
+
+        if($token !== $_SESSION['token']){
+            throw new \Exception("CSRF error");
+        }
 
         if (!$existUser) {
             throw new \Exception("Falha ao logar");
@@ -49,9 +62,7 @@ class LoginController
             throw new \Exception("Falha ao logar");
 
         }
-
         return $existUser;
-
     }
 
     private function getByEmail($email)

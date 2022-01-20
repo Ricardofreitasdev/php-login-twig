@@ -14,6 +14,8 @@
 <body>
 
     {% set logged = LoggedUser() %}
+    {% set csrf = csrf() %}
+
     {{ include('components/header.html') }}
 
     <div class="container page__{{ page }}">

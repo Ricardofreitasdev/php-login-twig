@@ -1,9 +1,13 @@
 <header class="header">
 
-  <?php echo 5+5 ?>
+  <nav class="container">
+    <a href="/">Home</a>
+  
+     {% if logged %}
+     <a href="/admin">voltar ao Admin {{ logged.name }}</a>
+     <a href="/exit">sair</a>
+     {% endif %}
 
-   {% if logged %}
-    <a href="/admin">voltar ao Admin</a>
-   {% endif %}
+  </nav>
 
 </header>

@@ -12,6 +12,7 @@
         <label for="password">Senha</label>
         <input type="text" name="password">
         
+        <input type="hidden" name="token" value="{{ csrf }}">
         <input type="submit" value="enviar">
         
         {{ messages('logged') }}

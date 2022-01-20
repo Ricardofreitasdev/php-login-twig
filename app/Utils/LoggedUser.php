@@ -9,6 +9,11 @@ class LoggedUser
         $_SESSION['LoggedUser'] = $user;
     }
 
+    public static function exit()
+    {
+        unset($_SESSION['LoggedUser']);
+    }
+
     public static function get()
     {
         $user = $_SESSION['LoggedUser'];
