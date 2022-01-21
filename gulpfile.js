@@ -1,3 +1,5 @@
+/* eslint-disable linebreak-style */
+
 const { src, dest, watch } = require('gulp');
 const minify = require('gulp-minify');
 const concat = require('gulp-concat');
