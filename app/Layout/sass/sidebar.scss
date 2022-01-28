@@ -1,0 +1,28 @@
+.sidebar{
+    width: 20%;
+    position: relative;
+
+    &__item{
+        transition: ease-in-out 0.3s;
+        padding: 10px;
+        color: #fff;
+        display: flex;
+
+        &:hover{
+            opacity: 0.9;
+            background-color: #23252a;
+        }
+    }
+
+    &__button{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        left: 0;
+    }
+
+    &.small{
+        width: 5%;
+    }
+
+}

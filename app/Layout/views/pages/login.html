@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block title %}home{% endblock %}
+{% block content %}
+
+<main class="page-login__wrapper">
+    <div class="page-login__tabs" id="tabs">
+        <button id="tab-login" class="tab-active">Login</button>
+        <button id="tab-register">Cadastro</button>
+    </div>
+    
+    <form id="form-login" class="page-login__form active" action="/login" method="post">
+        <h2>Login</h2>
+        <div class="box">
+            <label for="email">E-mail</label>
+            <input id="form-login-email" type="email" name="email" required>
+        </div>
+        
+        <div class="box">
+            <label for="password">Senha</label>
+            <input id="form-login-password"  type="text" name="password" required>
+        </div>
+        
+        <input type="hidden" name="token" value="{{ csrf }}">
+        <Button type="submit">Enviar</Button>
+    </form>
+    
+    <form id="form-register" class="page-login__form" action="/register" method="post">
+        <h2>Cadastro</h2>
+        <div class="box">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" required>
+        </div>
+
+        <div class="box">
+            <label for="name">Nome</label>
+            <input type="name" name="name" required>
+        </div>        
+        
+        <div class="box">
+            <label for="password">Senha</label>
+            <input type="text" name="password" required>
+        </div>
+        
+        <input type="hidden" name="token" value="{{ csrf }}">
+        <Button type="submit">Enviar</Button>
+    </form>
+</main>
+
+{% endblock %}

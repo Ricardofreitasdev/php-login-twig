@@ -9,6 +9,7 @@ if (getenv('DRIVER') === 'mysql') {
     $capsule->addConnection([
         'driver'    => getenv('DRIVER'),
         'host'      => getenv('HOST'),
+        'port'      => getenv('PORT'),
         'database'  => getenv('DATABASE'),
         'username'  => getenv('USERNAME'),
         'password'  => getenv('PASSWORD'),

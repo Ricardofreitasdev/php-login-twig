@@ -8,14 +8,45 @@ $dark: #202124;
     box-sizing: border-box;
 }
 
+a{
+    text-decoration: none;
+    text-align: none;
+}
+
 body{
     background-color: $dark;
     font-family: 'Roboto', sans-serif;
-
+    position: relative;
+    height: 100vh;
 }
 
 .container{
     max-width: 1170px;
     margin: 0 auto;
 }
+
+.messages{
+    position: absolute;
+    transform: translateX(-500px);
+    bottom: 25px;
+    display: block;
+    padding: 10px;
+    color: #fff;
+    transition: ease-in-out 0.3s;
+    overflow: hidden;
+    opacity: 0;
+
+    &.sucess{
+        background-color: green;
+        transform: translateX(25px);
+        opacity: 1;
+    }
+
+    &.alert{
+        background-color: red;
+        transform: translateX(25px);
+        opacity: 1;
+    }
+}
+
 

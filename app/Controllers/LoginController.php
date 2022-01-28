@@ -23,16 +23,19 @@ class LoginController
         try {
 
             $user = $this->validateLogin($email, $password, $token);
+            
             $_SESSION['logado'] = true;
-
             LoggedUser::add(json_decode($user));
-            Flash::add('logged', 'login realizado com sucesso');
+            Flash::add('message', 'login realizado com sucesso');
+            Flash::add('message-type', 'sucess');
 
             return $response->withStatus(302)->withHeader('Location', '/admin');
 
         } catch (\Throwable $e) {
 
-            Flash::add('logged', $e->getMessage());
+            Flash::add('message', $e->getMessage());
+            Flash::add('message-type', 'alert');
+
             return $response->withStatus(302)->withHeader('Location', '/');
         }
 
@@ -41,7 +44,11 @@ class LoginController
     public function exit(Request $request, Response $response)
     {
          unset($_SESSION['logado']);
+         unset($_SESSION['logged']);
+         unset($_SESSION['loggedUser']);
+         unset($_SESSION['token']);
          LoggedUser::exit();
+
          return $response->withStatus(302)->withHeader('Location', '/');
 
     }

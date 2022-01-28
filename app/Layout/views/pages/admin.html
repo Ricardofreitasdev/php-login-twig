@@ -4,9 +4,12 @@
 
 {% block content %}
  
-<a href="/">voltar</a>
- 
-    <p>nome: {{ logged.name }}</p>
-    <h1>admin</h1>
+{{ include('components/sidebar.html') }}
+
+<main class="main-content">
+    {% block section %}
+
+    {% endblock %}
+</main>
 
 {% endblock %}

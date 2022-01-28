@@ -26,15 +26,17 @@ class Tabs {
   }
 
   init() {
-    this.loginTab.addEventListener('click', () => {
-      this.selectedTab = 0;
-      this.activeTab(this.selectedTab);
-    });
+    if (this.loginTab && this.registerTab) {
+      this.loginTab.addEventListener('click', () => {
+        this.selectedTab = 0;
+        this.activeTab(this.selectedTab);
+      });
 
-    this.registerTab.addEventListener('click', () => {
-      this.selectedTab = 1;
-      this.activeTab(this.selectedTab);
-    });
+      this.registerTab.addEventListener('click', () => {
+        this.selectedTab = 1;
+        this.activeTab(this.selectedTab);
+      });
+    }
   }
 }
 
