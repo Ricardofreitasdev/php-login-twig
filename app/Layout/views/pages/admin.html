@@ -5,11 +5,9 @@
 {% block content %}
  
 {{ include('components/sidebar.html') }}
-
 <main class="main-content">
     {% block section %}
-
+    <h2>Olá, {{ logged.name }}</h2>
     {% endblock %}
 </main>
-
 {% endblock %}

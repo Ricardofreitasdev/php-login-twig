@@ -25,6 +25,8 @@ class LoginController
             $user = $this->validateLogin($email, $password, $token);
             
             $_SESSION['logado'] = true;
+            $_SESSION['id_user_logado'] = $user['id'];
+
             LoggedUser::add(json_decode($user));
             Flash::add('message', 'login realizado com sucesso');
             Flash::add('message-type', 'sucess');
@@ -47,6 +49,8 @@ class LoginController
          unset($_SESSION['logged']);
          unset($_SESSION['loggedUser']);
          unset($_SESSION['token']);
+         unset($_SESSION['id_user_logado']);
+                  
          LoggedUser::exit();
 
          return $response->withStatus(302)->withHeader('Location', '/');

@@ -2,7 +2,7 @@
 {% block title %}home{% endblock %}
 {% block content %}
 
-<main class="page-login__wrapper">
+<main id="form" class="page-login__wrapper">
     <div class="page-login__tabs" id="tabs">
         <button id="tab-login" class="tab-active">Login</button>
         <button id="tab-register">Cadastro</button>
@@ -12,7 +12,11 @@
         <h2>Login</h2>
         <div class="box">
             <label for="email">E-mail</label>
-            <input id="form-login-email" type="email" name="email" required>
+            <input
+            id="form-login-email"
+            type="email"
+            name="email"
+            required>
         </div>
         
         <div class="box">
@@ -45,5 +49,4 @@
         <Button type="submit">Enviar</Button>
     </form>
 </main>
-
 {% endblock %}

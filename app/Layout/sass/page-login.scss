@@ -53,6 +53,14 @@
                 font-size: 12px;
                 font-weight: lighter;
             }
+
+            input.sucess{
+                border: 2px solid green;
+            }
+            input.error{
+                border: 2px solid red;
+                
+            }
         }
 
         input{

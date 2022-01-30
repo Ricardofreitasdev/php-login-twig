@@ -10,4 +10,3 @@ if(!$capsule::schema()->hasTable('users')) {
     });
 }
 
-
